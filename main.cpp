@@ -15,7 +15,7 @@ void takePictures(int sleepFor, string directory);
 void uploadImage(string Directory, int picNumber);
 
 int main (int argc, char *argv[]){
-	takePictures(10, 5, "AnotherFolder");
+	takePictures(10, 0, "AnotherFolder");
 }
 
 
@@ -71,8 +71,9 @@ void takePicture(int picNumber, string directory, int sleepFor){
 void takePicture(int picNumber, string directory){
 	//Code for Laptop webcam
 	//iSystem("cd " + directory + " && streamer -f jpeg -o image" + convertToString(picNumber) + ".jpeg");
+
 	//Code for the Pi below.
-	iSystem("cd " + directory + " && raspistill -o image" + convertToString(picNumber) + ".jpeg");
+	iSystem("raspistill -o image" + convertToString(picNumber) + ".jpg");
 }
 
 //makes a directory within at the same location as the executable
@@ -80,8 +81,9 @@ void makeDirectory(string directory){
 	iSystem("sudo mkdir " + directory);
 }
 
-
-//Goes to a specified directory and uploads an image within the dirctory
+//Goes to a specified directory and uploads an image and then moves it to
+//a specified directory
 void uploadImage(string Directory, int picNumber){
-	iSystem("cd ~ && ./Dropbox-Uploader/dropbox_uploader.sh upload " + Directory + "/image" + convertToString(picNumber) + ".jpeg");
+	iSystem("./Dropbox-Uploader/dropbox_uploader.sh upload image" + convertToString(picNumber) + ".jpg");
+	iSystem("mv image" + convertToString(picNumber) + ".jpg Directory);
 }
