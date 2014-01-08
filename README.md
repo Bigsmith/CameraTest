@@ -9,3 +9,4 @@ Note: As of right now the user had to edit the code inorder for it to work by ch
 
 This will only run on Linux sytems and Arm Linux systems such as operating systems for the raspberry pi. Please compile the code with the correct compiler for your system.
 
+To run, download main.cpp file and compile it using the g++ command in the terminal. This will compile it to work with arm processors, please not that you must comiple if on your Raspberry Pi for this reason. After comipling simply run the programm. In order for the dropbox functionality to work please have Dropbox uploader installed and set up, if it isn't set up you will be requried to when you first run this program.
