@@ -85,5 +85,5 @@ void makeDirectory(string directory){
 //a specified directory
 void uploadImage(string Directory, int picNumber){
 	iSystem("./Dropbox-Uploader/dropbox_uploader.sh upload image" + convertToString(picNumber) + ".jpg");
-	//iSystem("mv image" + convertToString(picNumber) + ".jpg Directory);
+	iSystem("mv image" + convertToString(picNumber) + ".jpg " + Directory);
 }
